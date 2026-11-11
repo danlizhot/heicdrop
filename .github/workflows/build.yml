@@ -64,7 +64,7 @@ jobs:
           New-Item -ItemType Directory -Force -Path $dir | Out-Null
           Copy-Item target\release\heicdrop.exe $dir\HeicDrop.exe
           Copy-Item "$env:VCPKG_INSTALLATION_ROOT\installed\x64-windows\bin\*.dll" $dir
-          Copy-Item LICENSE, THIRD_PARTY_NOTICES.md, docs\GUIDE_UTILISATEUR.md $dir
+          Copy-Item LICENSE, THIRD_PARTY_NOTICES.md, docs\GUIDE_UTILISATEUR.pdf $dir
           Compress-Archive -Path $dir -DestinationPath "dist\HeicDrop-${{ steps.ver.outputs.version }}-windows-x64.zip" -Force
 
       - name: Paquet MSIX

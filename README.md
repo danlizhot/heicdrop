@@ -33,7 +33,7 @@
 
 Configuration requise : Windows 10 (1809) ou Windows 11, 64 bits.
 
-📖 **[Guide utilisateur](docs/GUIDE_UTILISATEUR.md)**
+📖 **Guide utilisateur** : [en ligne](docs/GUIDE_UTILISATEUR.md) · [PDF](docs/GUIDE_UTILISATEUR.pdf)
 
 ## Compiler depuis les sources
 
