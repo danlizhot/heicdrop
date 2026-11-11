@@ -86,16 +86,11 @@ Pour les remplacer sans modifier le script, créer les variables GitHub correspo
 
 ### Automatiquement (recommandé)
 
-1. Mettre à jour `version` dans `Cargo.toml` (ex. `1.0.0`).
-2. Créer et pousser un tag :
-   ```bash
-   git tag v1.0.0
-   ```
-   ```bash
-   git push origin v1.0.0
-   ```
-3. Le workflow **Build** compile, exécute les tests et publie une *Release* GitHub contenant
-   `HeicDrop_1.0.0.0_x64.msix` et l'archive portable `.zip`.
+1. Mettre à jour `version` dans `Cargo.toml` (ex. `1.0.1`).
+2. Envoyer le commit sur `main`.
+3. Le workflow **Build** compile, exécute les tests puis, comme le tag `v1.0.1` n'existe pas encore,
+   le crée et publie une *Release* GitHub contenant `HeicDrop_1.0.1.0_x64.msix` et l'archive
+   portable `.zip`. (Pousser soi-même un tag `vX.Y.Z` fonctionne aussi.)
 
 La version MSIX est `X.Y.Z.0` : le Store exige que le 4ᵉ nombre soit **0**, et chaque
 nouvelle soumission doit avoir une version **supérieure** à la précédente.

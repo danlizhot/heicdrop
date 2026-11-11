@@ -88,10 +88,24 @@ jobs:
             dist/*.zip
             dist/*.msix
 
+      # Publie automatiquement la version de Cargo.toml si son tag n'existe pas encore
+      # (envoi sur main), ou à la création manuelle d'un tag v*.
+      - name: Version déjà publiée ?
+        id: published
+        shell: pwsh
+        run: |
+          $tag = "v${{ steps.ver.outputs.version }}"
+          $exists = git ls-remote --tags origin "refs/tags/$tag"
+          "tag=$tag" >> $env:GITHUB_OUTPUT
+          "exists=$([bool]$exists)".ToLower() >> $env:GITHUB_OUTPUT
+
       - name: Publier la Release GitHub
-        if: startsWith(github.ref, 'refs/tags/v')
+        if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'push' && github.ref == 'refs/heads/main' && steps.published.outputs.exists != 'true')
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: ${{ startsWith(github.ref, 'refs/tags/v') && github.ref_name || steps.published.outputs.tag }}
+          target_commitish: ${{ github.sha }}
+          name: HeicDrop ${{ steps.ver.outputs.version }}
           files: |
             dist/*.zip
             dist/*.msix
