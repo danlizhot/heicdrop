@@ -3,20 +3,18 @@
   Construit le paquet MSIX de HeicDrop (pour le Microsoft Store ou l'installation locale).
 
 .EXAMPLE
-  # Valeurs fournies par l'Espace partenaires > Gestion du produit > Identité du produit
-  .\packaging\build-msix.ps1 -Version 1.0.0.0 `
-      -IdentityName "12345Editeur.HeicDrop" `
-      -Publisher "CN=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" `
-      -PublisherDisplayName "Mon nom d'éditeur"
+  # Les valeurs par défaut sont celles de l'Espace partenaires
+  # (Gestion du produit > Identité du produit, ID Store 9NZTB7VCGFGH).
+  .\packaging\build-msix.ps1 -Version 1.0.0.0
 
   Prérequis : `cargo build --release` déjà exécuté, DLL libheif disponibles
   (vcpkg, triplet x64-windows), SDK Windows 10/11 installé (makeappx, makepri).
 #>
 param(
     [string]$Version = "1.0.0.0",
-    [string]$IdentityName = "HeicDrop.Dev",
-    [string]$Publisher = "CN=HeicDrop Dev",
-    [string]$PublisherDisplayName = "HeicDrop",
+    [string]$IdentityName = "DanielLizotte.HeicDrop",
+    [string]$Publisher = "CN=EDE12BA8-4C62-4B6C-BCA0-C4A53527144E",
+    [string]$PublisherDisplayName = "Daniel Lizotte",
     [string]$VcpkgBin = "$env:VCPKG_INSTALLATION_ROOT\installed\x64-windows\bin",
     [string]$OutDir = "dist"
 )

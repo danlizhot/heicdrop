@@ -70,7 +70,7 @@ jobs:
       - name: Paquet MSIX
         shell: pwsh
         env:
-          # Définir ces variables dans Settings > Secrets and variables > Actions > Variables
+          # Facultatif : remplace l'identité Store inscrite dans packaging/build-msix.ps1
           MSIX_IDENTITY_NAME: ${{ vars.MSIX_IDENTITY_NAME }}
           MSIX_PUBLISHER: ${{ vars.MSIX_PUBLISHER }}
           MSIX_PUBLISHER_DISPLAY_NAME: ${{ vars.MSIX_PUBLISHER_DISPLAY_NAME }}

@@ -28,7 +28,7 @@
 
 ## Télécharger
 
-- **Microsoft Store** : *(lien à venir après publication)*
+- **Microsoft Store** : https://apps.microsoft.com/detail/9NZTB7VCGFGH *(actif une fois l'application certifiée)*
 - **Version portable** : page [Releases](../../releases) → `HeicDrop-x.y.z-windows-x64.zip`, à décompresser puis lancer `HeicDrop.exe` (aucune installation).
 
 Configuration requise : Windows 10 (1809) ou Windows 11, 64 bits.

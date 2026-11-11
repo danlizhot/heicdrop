@@ -69,8 +69,16 @@ Dans **Gestion du produit → Identité du produit**, relever :
 | `Package/Identity/Publisher` | `CN=1A2B3C4D-....` | variable `MSIX_PUBLISHER` |
 | `Package/Properties/PublisherDisplayName` | `Nom Éditeur` | variable `MSIX_PUBLISHER_DISPLAY_NAME` |
 
-Dans GitHub : **Settings → Secrets and variables → Actions → onglet Variables → New repository variable**,
-créer ces trois variables (ce ne sont pas des secrets : elles figurent dans tout paquet publié).
+Valeurs de HeicDrop (ID Store **9NZTB7VCGFGH**), déjà inscrites par défaut dans `packaging/build-msix.ps1` :
+
+| Champ | Valeur |
+|---|---|
+| Name | `DanielLizotte.HeicDrop` |
+| Publisher | `CN=EDE12BA8-4C62-4B6C-BCA0-C4A53527144E` |
+| PublisherDisplayName | `Daniel Lizotte` |
+
+Pour les remplacer sans modifier le script, créer les variables GitHub correspondantes
+(**Settings → Secrets and variables → Actions → Variables**).
 
 > ⚠️ Si ces valeurs ne correspondent pas exactement, le téléversement du paquet est refusé.
 
